@@ -1,0 +1,7 @@
+{
+  "name": "agriProject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
