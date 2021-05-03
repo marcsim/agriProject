@@ -5,5 +5,8 @@
 </ion-header>
 
 <ion-content>
+  <ion-item style="color: white;" *ngFor="let farmer of comp?.data | async">
+    <ion-label>{{ farmer.numSiret }}</ion-label>
+</ion-item>
 
 </ion-content>

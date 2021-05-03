@@ -16,5 +16,16 @@
   <div id="container">
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <form style="margin-top: 5%;"[formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <ion-item color="tertiary" style="margin-left: 25%; margin-right: 25%;">
+        <ion-label>Votre numéro de siret: </ion-label>
+        <ion-input type="text" formControlName="numSiret"></ion-input>
+      </ion-item>
+      <ion-item color="tertiary" style="margin-left: 25%; margin-right: 25%;">      
+        <ion-label>Êtes-vous bio ?</ion-label>
+        <ion-input type="checkbox" formControlName="isBio"></ion-input>
+      </ion-item>
+        <ion-button style="margin-top: 5%;"color="success" type="submit">Valider le formulaire</ion-button>
+    </form>
   </div>
 </ion-content>
