@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Agri Project
     </ion-title>
+    <ion-button slot="end" color="primary" (click)="signOut()">Déconnexion</ion-button>
+    <ion-button slot="end" color="warning" (click)="signIn()">Connexion</ion-button>
+    <ion-button slot="end" color="primary" (click)="signUp()">Inscription</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -16,16 +19,22 @@
   <div id="container">
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <form style="margin-top: 5%;"[formGroup]="form" (ngSubmit)="onSubmit(form)">
-      <ion-item color="tertiary" style="margin-left: 25%; margin-right: 25%;">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <ion-item color="tertiary" class="item">
         <ion-label>Votre numéro de siret: </ion-label>
         <ion-input type="text" formControlName="numSiret"></ion-input>
       </ion-item>
-      <ion-item color="tertiary" style="margin-left: 25%; margin-right: 25%;">      
+      <ion-item color="tertiary" class="item">      
         <ion-label>Êtes-vous bio ?</ion-label>
         <ion-input type="checkbox" formControlName="isBio"></ion-input>
       </ion-item>
-        <ion-button style="margin-top: 5%;"color="success" type="submit">Valider le formulaire</ion-button>
+      <ion-item color="tertiary" class="item">
+        <ion-label>Catégorie :</ion-label>
+        <ion-select multiple="true" formControlName="specialite" placeholder="Catégorie">
+          <ion-select-option *ngFor="let cat of data | async" value="{{ cat.nom }}">{{ cat.nom }}</ion-select-option>
+        </ion-select>
+      </ion-item>     
+      <ion-button class="button-sucess" color="success" type="submit">Valider le formulaire</ion-button>
     </form>
   </div>
 </ion-content>
